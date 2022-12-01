@@ -9,7 +9,7 @@ router.use('/resume', upload.fields([
   ])
 )
 
-
 router.post('/resume', userController.createProfile);
+router.get('/list', userController.profileList);
 
 export default router;

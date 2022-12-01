@@ -20,7 +20,7 @@ class userController {
         });
         const user = await doc.save();
         res
-          .status(200)
+          .status(201)
           .send({
             status: "sucees",
             message: "Profile Created Sucessfully",
@@ -33,6 +33,19 @@ class userController {
       }
     } catch (error) {}
   };
+  static profileList = async (req, res) =>{
+    try {
+      const users = await UserProfileModel.find()
+      res
+      .status(200)
+      .send({
+        status: "sucees",
+        users: users,
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
 export default userController;
